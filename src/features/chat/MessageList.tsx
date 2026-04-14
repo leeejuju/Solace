@@ -1,5 +1,5 @@
 import { useChatState } from '../../state/chat-context'
-import { formatRelativeTime } from './time'
+import { formatDistanceToNow as formatRelativeTime } from './time'
 
 export function MessageList() {
   const { messages } = useChatState()

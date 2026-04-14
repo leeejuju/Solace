@@ -1,8 +1,8 @@
 :root {
   font-family:
-    'Microsoft YaHei', 'PingFang SC', 'Segoe UI', system-ui, sans-serif;
-  line-height: 1.4;
-  font-weight: 400;
+    'Inter', 'Segoe UI Variable Text', 'Segoe UI', 'PingFang SC', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 450;
   color: var(--color-text);
   background: var(--color-bg);
   font-synthesis: none;
@@ -10,18 +10,20 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --color-bg: #0f1318;
-  --color-bg-elevated: #151b22;
-  --color-surface: rgba(24, 31, 40, 0.92);
-  --color-sidebar: rgba(11, 15, 20, 0.94);
-  --color-border: rgba(151, 172, 196, 0.16);
-  --color-text: #edf3fb;
-  --color-text-muted: #8f9fb2;
-  --color-accent: #4f8cff;
-  --color-accent-strong: #79a8ff;
-  --color-accent-soft: rgba(79, 140, 255, 0.14);
-  --color-success: #4cd9a1;
-  --color-warning: #ffbf69;
+  /* Claude-inspired Modern Palette */
+  --color-bg: #F3F0EC; /* Unified Shell Color (Warm Gray) */
+  --color-bg-elevated: #FFFFFF;
+  --color-surface: #FCFAF8;
+  --color-sidebar: #F3F0EC; /* Same as bg for seamless transition */
+  --color-border: #E5E0DA;
+  --color-text: #212121;
+  --color-text-muted: #6B6B6B;
+  --color-accent: #D97757;
+  --color-accent-strong: #C15D40;
+  --color-accent-soft: rgba(217, 119, 87, 0.08);
+  --color-success: #45826A;
+  --color-warning: #E29A32;
+  --color-danger: #B9443D;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -33,10 +35,11 @@
   --radius-lg: 18px;
   --radius-xl: 24px;
 
-  --top-rail-height: 52px;
-  --rail-width: 58px;
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
-  --transition-fast: 160ms ease;
+  --top-rail-height: 48px;
+  --rail-width: 48px;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-medium: 0 12px 24px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.02);
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {

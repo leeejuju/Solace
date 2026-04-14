@@ -2,21 +2,34 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 12px;
-  border: 1px solid rgba(79, 140, 255, 0.22);
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
   border-radius: 999px;
-  color: #d6e4ff;
-  background: rgba(79, 140, 255, 0.12);
+  color: var(--color-text);
+  background: var(--color-bg-elevated);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
 }
 
 .knowledge-card {
   min-height: 220px;
-  background:
-    radial-gradient(circle at top right, rgba(79, 140, 255, 0.18), transparent 36%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-soft);
+}
+
+.knowledge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-accent-soft);
 }
 
 .knowledge-card__icon {
-  margin-bottom: 12px;
-  color: var(--color-accent-strong);
+  margin-bottom: 16px;
+  color: var(--color-accent);
 }
+

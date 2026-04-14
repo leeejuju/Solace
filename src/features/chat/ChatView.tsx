@@ -1,4 +1,4 @@
-import { Bot, Sparkles } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { useChatState } from '../../state/chat-context'
 import { useSettingsState } from '../../state/settings-context'
 import { ChatInput } from './ChatInput'
@@ -9,32 +9,49 @@ export function ChatView() {
   const { messages } = useChatState()
   const { settings } = useSettingsState()
 
+  // Placeholder for chat history
+  const history = [
+    { id: '1', title: 'Explaining Quantum Physics' },
+    { id: '2', title: 'Refactoring React Hooks' },
+    { id: '3', title: 'Vacation Planning' },
+  ]
+
   return (
-    <div className="view-shell chat-layout">
-      {/* Integrated Compact Header */}
-      <header className="chat-compact-header">
-        <div className="chat-compact-header__info">
-          <h2>SOLACE CHAT</h2>
-          <p>{settings.model.split('/').pop()}</p>
+    <div className="chat-layout">
+      {/* Left Sidebar: Minimalist History */}
+      <aside className="chat-history-sidebar">
+        <div className="chat-history-header">
+          <button className="new-chat-btn">
+            <Plus size={16} />
+            <span>New Chat</span>
+          </button>
         </div>
-
-        <div className="chat-tool-group" style={{ display: 'flex', gap: '4px' }}>
-          <div className="chat-status-pill">
-            <Bot size={12} />
-            <span>READY</span>
-          </div>
-          <div className="chat-status-pill">
-            <Sparkles size={12} />
-            <span>{messages.length}</span>
-          </div>
+        
+        <div className="chat-history-list">
+          {history.map((item) => (
+            <div 
+              key={item.id} 
+              className={`chat-history-item ${item.id === '1' ? 'chat-history-item--active' : ''}`}
+            >
+              <div className="chat-history-item__title">
+                {item.title}
+              </div>
+            </div>
+          ))}
         </div>
-      </header>
+      </aside>
 
-      {/* Main Conversation Area */}
-      <MessageList />
+      {/* Right Area: Clean Conversation */}
+      <main className="chat-main-area">
+        <header className="chat-compact-header">
+          <div className="chat-compact-header__model">
+            {settings.model.split('/').pop()}
+          </div>
+        </header>
 
-      {/* Compact Input */}
-      <ChatInput />
+        <MessageList />
+        <ChatInput />
+      </main>
     </div>
   )
 }

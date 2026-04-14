@@ -1,4 +1,4 @@
-import { SendHorizontal, Paperclip, Eraser } from 'lucide-react'
+import { ArrowUp, Paperclip, Eraser } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import { useChatState } from '../../state/chat-context'
 
@@ -43,14 +43,14 @@ export function ChatInput() {
       <div className="chat-input-actions">
         <div className="chat-input-tools">
           <button className="chat-tool-btn" title="Attach file">
-            <Paperclip size={14} />
+            <Paperclip size={16} />
           </button>
           <button 
             className="chat-tool-btn" 
             title="Clear context"
             onClick={clearMessages}
           >
-            <Eraser size={14} />
+            <Eraser size={16} />
           </button>
         </div>
         <button
@@ -58,7 +58,7 @@ export function ChatInput() {
           disabled={!text.trim() || isTyping}
           onClick={handleSubmit}
         >
-          <SendHorizontal size={14} />
+          <ArrowUp size={20} strokeWidth={2.5} />
         </button>
       </div>
     </div>

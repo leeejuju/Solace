@@ -7,6 +7,8 @@ interface ChatContextValue {
   toolToggles: ToolToggles
   sendMessage: (content: string) => void
   toggleTool: (tool: keyof ToolToggles) => void
+  clearMessages: () => void
+  isTyping: boolean
 }
 
 const initialMessages: Message[] = [
@@ -27,6 +29,11 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     mcp: false,
     skill: true,
   })
+  const [isTyping] = useState(false)
+
+  const clearMessages = () => {
+    setMessages([])
+  }
 
   const sendMessage = (content: string) => {
     const trimmed = content.trim()
@@ -59,8 +66,10 @@ export function ChatProvider({ children }: { children: ReactNode }) {
       toolToggles,
       sendMessage,
       toggleTool,
+      clearMessages,
+      isTyping,
     }),
-    [messages, toolToggles],
+    [messages, toolToggles, isTyping],
   )
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>
